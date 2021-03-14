@@ -116,10 +116,6 @@ ul li span{
 #upload:hover > img{
   transition: 0.38s;
 }
-
-.sign-in{
-  filter: invert(1);
-}
 /* ------------ */
 
 
