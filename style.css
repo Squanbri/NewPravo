@@ -39,7 +39,7 @@ nav h5{
   border: none !important;
   outline: none !important;
 }
-.input-form .fa-search{
+.input-form img{
   position: absolute;
   top: 10px;
   left: 10px;
@@ -115,6 +115,10 @@ ul li span{
 }
 #upload:hover > img{
   transition: 0.38s;
+}
+
+.sign-in{
+  filter: invert(1);
 }
 /* ------------ */
 
@@ -256,4 +260,21 @@ article{
 }
 .modal-footer {
   border-top: none;
+}
+
+.btn-delete{
+  background-color: #b83d3d;
+}
+
+.w-60{
+  width: 50%;
+}
+.container{
+  max-width: none !important;
+  width: 93.5% !important;
+  margin-left: 6.5%;
+}
+nav .container{
+  width: 93.5% !important;
+  margin-left: 6.5%;
 }

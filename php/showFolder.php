@@ -17,8 +17,9 @@
     $item = array(); // Создаём подобие объекта JS
     array_push($item, array("title",$file)); // Вкладываем название файла
     if (is_dir($path)){
-      array_push($item, array("type","folder")); // Указываем тип(Файл или папка   )
-      array_push($item, array("path","$path")); // Указываем тип(Файл или папка   )
+      array_push($item, array("type","folder")); // Указываем тип(Файл или папка )
+      array_push($item, array("path","$path")); // Указываем путь до файла
+      array_push($item, array("extension", ''));
 
       // Количество папок и файлов в этой папке
       $dir2 = opendir($path);
@@ -39,7 +40,14 @@
     }
     else {
       array_push($item, array("type","file")); // Указываем тип(Файл или папка   )
-      array_push($item, array("path","$path")); // Указываем тип(Файл или папка   )
+      array_push($item, array("path", $path)); // Указываем путь
+
+      // Указывает расширения файла
+      if     (substr($file, -4, 4) === ".doc" || substr($file, -4, 4) === "docx") { array_push($item, array("extension", "doc")); }
+      else if(substr($file, -4, 4) === ".xls" || substr($file, -4, 4) === "xlsx") { array_push($item, array("extension", "xls")); }
+      else if(substr($file, -4, 4) === ".ppt" || substr($file, -4, 4) === "pptx") { array_push($item, array("extension", "ppt")); }
+      else { array_push($item, array("extension", "")); }
+
 
       // Запись файла в массив
       array_push($value, $item);
@@ -48,6 +56,5 @@
   }
 
 // Пересылаем данные в js
-// echo json_encode(array("value" => $value, "items" => $items));
-echo json_encode(array("value" => $value));
+echo json_encode(array("items" => $value));
 ?>
